@@ -1,0 +1,80 @@
+DATASET STRUTTURATI:
+
+1) Ho scelto il dataset relativo alle candele giornaliere dell'indice americano S&P500.
+https://finance.yahoo.com/quote/%5EGSPC/history/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAArPJc1frT0W9rG6HWawdLFhWWvChJ5A_mC2GHwruNOtA8_VhVWdYVdS3QygvKnX8ViM_nAM8LlN__ZPvJc-Z5fISsGYtK0v3NadISs5Px2I97qvNNF3uX5BrShp26iAASyQNnav2NbxmBuoZe7CcFEsfTo6BEyhR3PcTgXgDkWq
+
+Analisi: 
+- Utilizzando i dati potrei cercare dei pattern nel comportamento dell'asset finanziario come ad esempio: verificare se i valori massimi/minimi mensili ricadano in un particolare giorno della settimana;
+se le occasioni di posizionamento a basso rischio sono correlate a una variazione significativa dell'escursione media del prezzo ecc. ecc.
+
+Identificativo:
+- Candela giornaliera con data assegnata
+
+Attributi:
+- Prezzo di apertura
+- Prezzo di chiusura
+- Minimo giornaliero
+- Massimo giornaliero
+- Prezzo di chiusura aggiustato al netto dei dividendi
+- Valore volumetrico di giornata
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+2) Ho scelto un dataset relativo a una classificazione della condizione ortopedica della colonna vertebrale di 310 pazienti
+https://archive.ics.uci.edu/ml/datasets/Vertebral+Column
+
+Analisi:
+- La visualizzazione grafica dei parametri potrebbe aiutare a sottolineare delle particolari combinazioni di parametri correlate a un più alto rischio di degenerazione della condizione ortopedica.
+
+Identificativo:
+- Paziente
+
+Attributi:
+- Incidenza pelvica
+- Angolo di lordosi lombare
+- Pendenza sacrale
+- Radius pelvico
+- grado di spondilolistesi
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+3) Ho scelto il dataset relativo a uno studio grafico condotto sulla morfologia di 900 campioni di uvetta
+https://archive.ics.uci.edu/ml/datasets/Raisin+Dataset
+
+Analisi:
+- Lo studio dei valori medi e dei rapporti percentuali tra i parametri potrebbe facilitare il riconoscimento della specie di uvetta tramite l'utilizzo di una intelligenza artificiale.
+
+Identificativi:
+- Varietà Kecimen
+- Varietà Besni
+
+Attributi:
+- Area
+- Perimetro
+- Valore max lunghezza
+- Valore max larghezza
+- Eccentricità
+- Area della convessità
+- Estensione
+
+____________________________________________________________________________________________________________________________________
+____________________________________________________________________________________________________________________________________
+
+
+DATASET NON STRUTTURATI:
+
+1) Cartella "Download" generica.
+Analisi: 
+- Potrei studiarne il contenuto suddividendo i file per estensione e dimensione ai fini di ottimizzazione spazio e salvataggio del materiale rilevante.
+In questo modo potrei creare un programma che, al superamento di una soglia di incidenza percentuale sul disco rigido, mi avvisa. 
+Questo mi consentirebbe di controllare i file, conservare quelli che mi interessano (specialmente le immagini) ed eliminare il resto ottimizzando lo spazio sul PC.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+2) Cartella "Messaggi vocali inviati Whatsapp" di un telefono
+Analisi: 
+- Potrei studiare il contenuto su base temporale per verificare se tendo a mandare più messaggi vocali in un determinato range orario, giorno della settimana, stagione ecc.
+
+
+
+
