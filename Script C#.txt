@@ -1,0 +1,139 @@
+// Script CSV cTrader - separatore corretto + 6 parametri
+
+using System;
+using cAlgo.API;
+using cAlgo.API.Internals;
+using cAlgo.API.Indicators;
+using cAlgo.Indicators;
+using System.Text;
+using System.IO;
+using System.Linq;
+
+namespace cAlgo
+{
+    [Indicator(IsOverlay = false, TimeZone = TimeZones.UTC, AccessRights = AccessRights.FullAccess)]
+    public class CSVDataWriter : Indicator
+    {
+        [Parameter("Source 1", Group = "Source 1")]
+        public DataSeries Source1 { get; set; }
+
+        [Parameter("Source Name 1", DefaultValue = "Indi_Name1", Group = "Source 1")]
+        public string SourceName1 { get; set; }
+
+        [Parameter("Source 2", Group = "Source 2")]
+        public DataSeries Source2 { get; set; }
+
+        [Parameter("Source Name 2", DefaultValue = "Indi_Name2", Group = "Source 2")]
+        public string SourceName2 { get; set; }
+
+        [Parameter("Source 3", Group = "Source 3")]
+        public DataSeries Source3 { get; set; }
+
+        [Parameter("Source Name 3", DefaultValue = "Indi_Name3", Group = "Source 3")]
+        public string SourceName3 { get; set; }
+
+        [Parameter("Source 4", Group = "Source 4")]
+        public DataSeries Source4 { get; set; }
+        
+        [Parameter("Source Name 4", DefaultValue = "Indi_Name4", Group = "Source 4")]
+        public string SourceName4 { get; set; }
+        
+        [Parameter("Source 5", Group = "Source 5")]
+        public DataSeries Source5 { get; set; }
+        
+        [Parameter("Source Name 5", DefaultValue = "Indi_Name5", Group = "Source 5")]
+        public string SourceName5 { get; set; }
+        
+        [Parameter("Source 6", Group = "Source 6")]
+        public DataSeries Source6 { get; set; }
+        
+        [Parameter("Source Name 6", DefaultValue = "Indi_Name6", Group = "Source 6")]
+        public string SourceName6 { get; set; }
+
+        [Parameter("File Name", DefaultValue = "CSV_Output")]
+        public string FileName { get; set; }
+
+
+        [Parameter("Start Writing", DefaultValue = false)]
+        public bool StartWriting { get; set; }
+
+        [Parameter("Load To Date?", DefaultValue = false)]
+        public bool LoadToDate { get; set; }
+
+        [Parameter("Load To (dd/mm/yyyy):", DefaultValue = "01/01/2019")]
+        public string LoadDate { get; set; }
+
+
+        [Output("Zero Line")]
+        public IndicatorDataSeries ZeroLine { get; set; }
+
+        private string fullPath;
+        private StringBuilder csv;
+        private bool haveWritten;
+        private DateTime dateTime;
+
+        protected override void Initialize()
+        {
+            // Set up the string writer for CSV:
+            haveWritten = false;
+            fullPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + FileName + ".csv";
+            csv = new StringBuilder();
+            string intro = string.Format("Time;Open;High;Low;Close;{0};{1};{2};{3};{4};{5}", SourceName1, SourceName2, SourceName3, SourceName4, SourceName5, SourceName6);
+            csv.AppendLine(intro);
+
+            // Get datetime to load until:
+            string[] pieces = LoadDate.Split('/');
+            dateTime = new DateTime(int.Parse(pieces[2]), int.Parse(pieces[1]), int.Parse(pieces[0]));
+
+            Print("{0} bar on the chart", Bars.Count);
+
+            if (LoadToDate)
+                LoadMoreBars(dateTime);
+
+        }
+
+        private void LoadMoreBars(DateTime dateTime)
+        {
+            while (Bars.OpenTimes.Reverse().LastOrDefault() > dateTime)
+            {
+                var loadedCount = Bars.LoadMoreHistory();
+                Print("Loaded {0} bars", loadedCount);
+                if (loadedCount == 0)
+                    break;
+            }
+            Print("Finished, earliest open: {0}", Bars.OpenTimes.Reverse().LastOrDefault());
+        }
+
+        public override void Calculate(int index)
+        {
+
+            ZeroLine[index] = 0;
+
+            if (StartWriting)
+            {
+                string open = Bars.OpenPrices[index].ToString();
+                string high = Bars.HighPrices[index].ToString();
+                string low = Bars.LowPrices[index].ToString();
+                string close = Bars.ClosePrices[index].ToString();
+                string sourceValue1 = Source1[index].ToString();
+                string sourceValue2 = Source2[index].ToString();
+                string sourceValue3 = Source3[index].ToString();
+                string sourceValue4 = Source4[index].ToString();
+                string sourceValue5 = Source5[index].ToString();
+                string sourceValue6 = Source6[index].ToString();
+
+                var newLine = string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10}", Bars.OpenTimes[index], open, high, low, close, sourceValue1, sourceValue2, sourceValue3, sourceValue4, sourceValue5, sourceValue6);
+                csv.AppendLine(newLine);
+
+                if (!haveWritten & IsLastBar)
+                {
+                    File.WriteAllText(fullPath, csv.ToString());
+                    haveWritten = true;
+                }
+            }
+
+
+
+        }
+    }
+}
