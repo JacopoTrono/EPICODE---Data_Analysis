@@ -3,6 +3,8 @@
 
 __OBIETTIVI__: L'obiettivo principale di questo progetto è applicare le conoscenze apprese durante il corso di Data Analysis per analizzare approfonditamente i mercati finanziari sfruttando programmazione, Microsoft Excel e PowerBI. Ho focalizzato la mia attenzione sugli indici americani US500, US100 e US30.
 
+__PITCH__: 
+
 -------------
 
 __CODING__: Per ottenere i dati ho scritto un codice in C# che fosse in grado di sfruttare le API di cTrader, famosa piattaforma della Spotware. Ho eseguito lo script su ogni chart e ho ottenuto così tre CSV contenenti informazioni temporali, dati volumetrici e valori OHLC delle candele giornaliere.
