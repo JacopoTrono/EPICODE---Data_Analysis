@@ -1,4 +1,4 @@
-![pxfuel - Copia](https://github.com/JacopoTrono/EPICODE---Data_Analysis/assets/121988361/ec14d688-fa87-4254-b68f-800019cf5839)
+![pxfuel - Copia](https://github.com/JacopoTrono/EPICODE---Data_Analysis/assets/121988361/a7a72971-09be-4614-9790-4a0ff609abdb)
 
 
 OBIETTIVI: L'obiettivo principale di questo progetto è applicare le conoscenze apprese durante il corso di Data Analysis per analizzare approfonditamente i mercati finanziari sfruttando programmazione, Microsoft Excel e PowerBI. Ho focalizzato la mia attenzione sugli indici americani US500, US100 e US30.
