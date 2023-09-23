@@ -7,7 +7,7 @@ __PITCH__:
 
 -------------
 
-__CODING__: Per ottenere i dati ho scritto un codice in C# che fosse in grado di sfruttare le API di cTrader, famosa piattaforma della Spotware. Ho eseguito lo script su ogni chart e ho ottenuto così tre CSV contenenti informazioni temporali, dati volumetrici e valori OHLC delle candele giornaliere.
+__CODING__: Per ottenere i dati ho scritto un codice in C# che fosse in grado di sfruttare le API di cTrader, famosa piattaforma della Spotware. Ho eseguito lo script su ogni chart e ho ottenuto così tre CSV contenenti informazioni temporali, dati volumetrici e valori OHLC delle candele giornaliere. Ho poi usato Python per calcolare le correlazioni tra le features del dataset e creare una matrice di correlazione grafica con la libreria seaborn.
 
 __EXCEL__: Con Microsoft Excel ho effettuato le join necessarie per ottenere una tabella unica contenente tutti i dati usando come dato discriminante la data comune alle entità. Ho, successivamente, creato delle nuove colonne per calcolare ulteriori dati relativi a volatilità e momentum degli asset: RSI 14 periodi, EMA 50 e 200 periodi, Delta tra chiusura giornaliera e valore vWAP
 
