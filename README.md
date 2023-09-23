@@ -3,7 +3,7 @@
 
 __OBIETTIVI__: L'obiettivo principale di questo progetto è applicare le conoscenze apprese durante il corso di Data Analysis per analizzare approfonditamente i mercati finanziari sfruttando programmazione, Microsoft Excel e PowerBI. Ho focalizzato la mia attenzione sugli indici americani US500, US100 e US30.
 
-__PITCH__: 
+__PITCH__: https://www.dropbox.com/scl/fi/2jmasrscxd71rj96viyzp/Jacopo-Trono-DAPT-01-23-Epicode-Data-Analysis.mkv?rlkey=836ej93idp9vo93dtqbef5qcj&dl=0
 
 -------------
 
